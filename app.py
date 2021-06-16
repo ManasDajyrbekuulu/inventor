@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 
+#Этот код позволяет добавить файлы в список с сайта
+
 flask_app = Flask(__name__)
 
 @flask_app.route('/')
