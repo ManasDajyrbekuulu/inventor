@@ -4,3 +4,6 @@ blackboard
 Laptop
 Microphone
 Клавиатура
+Флаг
+Рюкзак
+Book
