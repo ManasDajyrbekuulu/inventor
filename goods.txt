@@ -7,3 +7,4 @@ Microphone
 Флаг
 Рюкзак
 Book
+
