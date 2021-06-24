@@ -1,9 +1,8 @@
 Mouse
 Keyboard
-blackboard
 Laptop
 Microphone
 Клавиатура
 Флаг
 Рюкзак
-Book
+Bug

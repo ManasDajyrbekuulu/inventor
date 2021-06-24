@@ -1,23 +1,26 @@
 from flask import Flask, render_template, request
-
-#Этот код позволяет добавить файлы в список с сайта
-
+from database import Good, engine
+from sqlalchemy.orm  import sessionmaker
+#55 urok
 flask_app = Flask(__name__)
+Session = sessionmaker(engine)
 
 @flask_app.route('/')
 def homepage():
-    f = open('goods.txt', 'r', encoding='utf-8')
-    txt = f.readlines()
-    return render_template('index.html', goods=txt)
+    session = Session()
+    goods = session.query(Good)
+    session.commit()
+    return render_template('index.html', goods=goods)
 
 
 
 @flask_app.route('/add/', methods=["POST"])
 def add():
     good = request.form["good"]
-    f = open('goods.txt', 'a+', encoding="utf-8")
-    f.write(good + "\n")
-    f.close()
+    session = Session()
+    good_object = Good(name=good)
+    session.add(good_object)
+    session.commit()
     return """
         <h1>Инвентарь пополнен</h1>
         <a href='/'>Домой</a>
